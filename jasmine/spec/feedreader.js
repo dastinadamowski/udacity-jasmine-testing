@@ -38,15 +38,21 @@ $(function() {
            expect(feed.url.length).not.toBeLessThan(9);       // checks if an URL stores more than just http:// or https://
          });
        };
-         for (i = 0; i < allFeeds.length; i++) {              // loops through each feed
+         for (var i = 0; i < allFeeds.length; i++) {              // loops through each feed
             checkValidUrl(allFeeds[i]);                       // function checkValidUrl to detect invalid URLs
          };
 
 
-        /* TODO: Write a test that loops through each feed
+        /* Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('has a name defined', function() {              // test defined
+           for (var i = 0; i < allFeeds.length; i++) {      // loops through each feed
+             expect(allFeeds[i].name).toBeDefined();        // checks if a 'name' key is defined
+             expect(allFeeds[i].name.length).not.toBe(0);   // checks if the name is not empty
+           }
+         })
     });
 
 
