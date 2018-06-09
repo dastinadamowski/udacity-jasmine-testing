@@ -96,16 +96,26 @@ $(function() {
     });
 
     it('have at least a single .entry element within the .feed container', function() {
-      expect($('.feed .entry').length).not.toMatch(0); // Checks whether there is anything stored within the .feed container
-      done();
+      expect($('.feed .entry').length).not.toBe(0); // Checks whether there is anything stored within the .feed container
     });
   });
 
   /* Write a new test suite named "New Feed Selection" */
-describe('New Feed Selection', function() {
+  describe('New Feed Selection', function() {
+    let previousFeed;
+    /* Write a test that ensures when a new feed is loaded
+     * by the loadFeed function that the content actually changes.
+     * Remember, loadFeed() is asynchronous.
+     */
+    beforeEach(function(done) {
+      loadFeed(0, function() {
+        previousFeed = $('.feed').html(); // Stores the previous (old) feed
+        loadFeed(1, done); // Loads a new feed
+      });
+    });
 
-  /* TODO: Write a test that ensures when a new feed is loaded
-   * by the loadFeed function that the content actually changes.
-   * Remember, loadFeed() is asynchronous.
-   */
+    it('is different than the previous one', function() {
+      expect($('.feed').html()).not.toBe(previousFeed); // Checks if the new feed can actually be considered as "a new one"
+    });
+  });
 }());
