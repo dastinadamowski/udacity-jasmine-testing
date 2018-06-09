@@ -27,10 +27,20 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         function checkValidUrl(feed) {
+         it('has URL defined && URL !== empty', function() {  // test defined
+           expect(feed.url).toBeDefined();                    // checks if an 'url' key is defined
+           expect(feed.url).toMatch(/^http(s?)\:\/\//);       // checks if allFeeds object's url elements contain http or https
+           expect(feed.url.length).not.toBeLessThan(9);       // checks if an URL stores more than just http:// or https://
+         });
+       };
+         for (i = 0; i < allFeeds.length; i++) {              // loops through each feed
+            checkValidUrl(allFeeds[i]);                       // function checkValidUrl to detect invalid URLs
+         };
 
 
         /* TODO: Write a test that loops through each feed
