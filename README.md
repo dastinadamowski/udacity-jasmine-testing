@@ -13,7 +13,7 @@ This project provided a web-based application that reads RSS feeds. The original
   * Clone or download ZIP
   * Open index.html
 
-Try the                      >>>[LIVE DEMO](https://github.com/dastinadamowski/udacity-jasmine-testing/)<<< and see the "Red Green Refactor workflow in action"
+Try the                      >>>[LIVE DEMO](https://dastinadamowski.github.io/udacity-jasmine-testing/)<<< and see the "Red Green Refactor workflow in action"
 
 
 ## Why this Project?
